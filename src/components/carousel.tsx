@@ -1,55 +1,42 @@
-import { useState } from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import { Autoplay, Pagination, Navigation } from "swiper/modules";
+import "swiper/css";
+import "swiper/css/pagination";
+import "swiper/css/navigation";
 
-const images = ["/sueño.jpg", "/mesas.jpg", "/carpa.jpg", "/cooler.jpg"];
-
-export default function Carousel() {
-  const [current, setCurrent] = useState(0);
-
-  const prevSlide = () => {
-    setCurrent(current === 0 ? images.length - 1 : current - 1);
-  };
-
-  const nextSlide = () => {
-    setCurrent(current === images.length - 1 ? 0 : current + 1);
-  };
-
+const Carousel = () => {
   return (
-    <div className="relative w-full max-w-3xl mx-auto overflow-hidden rounded-2xl shadow-lg">
-      {/* Imagen */}
-      <img
-        src={images[current]}
-        alt="carousel"
-        className="w-full h-80 object-cover transition-all duration-500"
-      />
-
-      {/* Botón Izquierda */}
-      <button
-        onClick={prevSlide}
-        className="absolute top-1/2 left-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/70"
+    <section className="w-full h-64 sm:h-80 md:h-96 bg-gray-100 py-6">
+      <Swiper
+        modules={[Autoplay, Pagination, Navigation]}
+        spaceBetween={20}
+        slidesPerView={1}
+        loop={true}
+        autoplay={{
+          delay: 3000,
+          disableOnInteraction: false,
+        }}
+        pagination={{ clickable: true }}
+        navigation={true}
+        breakpoints={{
+          640: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+        className="h-full"
       >
-        ◀
-      </button>
-
-      {/* Botón Derecha */}
-      <button
-        onClick={nextSlide}
-        className="absolute top-1/2 right-4 -translate-y-1/2 bg-black/40 text-white p-2 rounded-full hover:bg-black/70"
-      >
-        ▶
-      </button>
-
-      {/* Indicadores */}
-      <div className="absolute bottom-4 w-full flex justify-center gap-2">
-        {images.map((_, index) => (
-          <button
-            key={index}
-            onClick={() => setCurrent(index)}
-            className={`w-3 h-3 rounded-full ${
-              current === index ? "bg-white" : "bg-gray-400"
-            }`}
-          ></button>
+        {[1, 2, 3, 4, 5].map((i) => (
+          <SwiperSlide key={i}>
+            <img
+              className="w-full h-full object-cover rounded-xl shadow-lg hover:scale-105 transition-transform duration-500"
+              src={`/wallpaper.png`}
+              alt={`Slide ${i}`}
+            />
+          </SwiperSlide>
         ))}
-      </div>
-    </div>
+      </Swiper>
+    </section>
   );
-}
+};
+
+export default Carousel;

@@ -21,6 +21,7 @@ const Contact = () => {
             <input
               type="name"
               id="name"
+              placeholder="Tu Nombre"
               className="shadow-sm  bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600"
             ></input>
             <label
@@ -32,14 +33,16 @@ const Contact = () => {
             <input
               type="text"
               id="Descripcion"
+              value="Quiero mas informacion..."
               className="shadow-sm bg-gray-50 border border-gray-300 text-white text-sm rounded-lg focus:ring-primary-500 focus:border-primary-500 block w-full p-10 dark:bg-gray-700 dark:border-gray-600"
             ></input>
           </div>
         </form>
-        <a className="flex py-6 ">
-          <button className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
-            Enviar
-          </button>
+        <a
+          className="inline-flex  mt-8 text-white cursor-pointer bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 me-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800"
+          href="https://wa.me/6671361586?text=Quiero%20mas%20informacion..."
+        >
+          Enviar
         </a>
       </div>
     </section>

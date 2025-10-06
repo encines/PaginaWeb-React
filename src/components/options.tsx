@@ -47,9 +47,13 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 }) => (
   <a
     href={href}
-    className="flex flex-col w-full sm:w-80 bg-white rounded-xl shadow-xl transition-transform duration-300 ease-out hover:scale-105 overflow-hidden gap-5"
+    className="relative flex flex-col w-full sm:w-80 bg-white rounded-xl shadow-xl transition-transform duration-300 ease-out hover:scale-105 overflow-hidden gap-5 z-10"
   >
-    <img src={imageUrl} alt={title} className="w-full h-100 object-cover" />
+    <img
+      src={imageUrl}
+      alt={title}
+      className="w-full h-48 sm:h-56 object-cover"
+    />
     <div className="p-6">
       <h3 className="text-2xl font-semibold">{title}</h3>
       <p className="text-lg mt-2 text-gray-600">{description}</p>
@@ -60,21 +64,22 @@ const ServiceCard: React.FC<ServiceCardProps> = ({
 const Options = () => {
   return (
     // 3. Contenedor principal con flex-col para apilar el título y la cuadrícula de tarjetas.
-    <div className="flex flex-col items-center py-16 px-4 h-screen bg-white ">
-      <h2 className="text-4xl font-bold mb-12 text-gray-800 text-black">
+    <div className="flex flex-col items-center py-12 sm:py-16 px-4 bg-white pt-24">
+      <h2 className="text-3xl sm:text-4xl font-bold mb-8 text-gray-800 text-black">
         Nuestros Servicios
       </h2>
 
-      {/* 4. Contenedor para la cuadrícula de tarjetas. */}
-      <div className="flex flex-wrap gap-10 justify-center">
+      {/* 4. Contenedor para la cuadrícula de tarjetas: usar grid responsive evita solapamientos */}
+      <div className="w-full max-w-6xl grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
         {services.map((service) => (
-          <ServiceCard
-            key={service.title}
-            title={service.title}
-            description={service.description}
-            imageUrl={service.imageUrl}
-            href={service.href}
-          />
+          <div key={service.title} className="flex justify-center">
+            <ServiceCard
+              title={service.title}
+              description={service.description}
+              imageUrl={service.imageUrl}
+              href={service.href}
+            />
+          </div>
         ))}
       </div>
     </div>
