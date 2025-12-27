@@ -1,8 +1,8 @@
 import React from "react";
 
-let MesaRedonda = 130;
-let MesaRedondaHerreria = 150;
-let MesaCuadrada = 200;
+const MesaRedonda = 130;
+const MesaRedondaHerreria = 150;
+const MesaCuadrada = 200;
 
 function handleSelectChange(event: React.ChangeEvent<HTMLSelectElement>) {
   const selectedValue = event.target.value;
@@ -23,7 +23,7 @@ const Contact = () => {
       <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 mx-7 rounded-lg shadow-lg ">
         <h2 className="text-3xl">Brincolines</h2>
         <a>
-          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold  px-4 rounded mt-4 py-2 px-4 mb-8">
+          <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold  px-4 rounded mt-4 py-2  mb-8">
             Ver Brincolines
           </button>
         </a>
@@ -43,6 +43,7 @@ const Contact = () => {
           name="cantidad"
           placeholder="Cantidad"
         ></input>
+        <h3 id="total"className="mt-4 mb-4">Total: </h3> 
       </div>
       <div className="max-w-md w-full space-y-8 p-10 bg-gray-800 rounded-lg shadow-lg">
         <h2 className="text-3xl mb-8">Agendar</h2>
@@ -86,7 +87,7 @@ const Contact = () => {
           />
           <a>
             <button
-              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded mt-4 py-2 px-4"
+              className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 rounded mt-4 px-4"
               type="submit"
             >
               Enviar

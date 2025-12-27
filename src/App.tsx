@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import HomePage from "./pages/HomePage";
 import BrincolinesPage from "./pages/BrincolinPage";
 import Contact from "./pages/Contact";
+import Cotizar from "./pages/Cotizar";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/brincolines" element={<BrincolinesPage />} />
           <Route path="/contact" element={<Contact />} />
+           <Route path="/cotizar" element={<Cotizar />} />
         </Routes>
       </main>
       <Footer />
